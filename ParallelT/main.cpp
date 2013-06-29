@@ -39,10 +39,18 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 
 int main(int argc, char **argv) {
 	if (argc != 10) {
-		fprintf(stderr, "usage: %s sigma k min input(ppm) output(ppm) doPreprocess(0/1) doPostprocess(0/1) sort(s/c/f) rgb(0/1)\n", argv[0]);
-		fprintf(stderr, "   s - std::sort\n");
-		fprintf(stderr, "   csf - parallel counting sort (round)\n");
-		fprintf(stderr, "   csr - parallel counting sort (floor)\n\n");
+		fprintf(stderr, "usage: %s sigma k min input output doPreprocess(0/1) doPostprocess(0/1) sort(s/c/f) rgb(0/1)\n", argv[0]);		
+		fprintf(stderr, "   input: portable pixelmap (uncompressed) \n");
+		fprintf(stderr, "   output: portable pixelmap (uncompressed)\n");
+		fprintf(stderr, "   doPreprocess: 0 - without preprocess,  1 - with preprocess\n");
+		fprintf(stderr, "   sort: s   - std::sort\n");
+		fprintf(stderr, "         csf - parallel counting sort (round)\n");
+		fprintf(stderr, "         csr - parallel counting sort (floor)\n");
+		fprintf(stderr, "   rgb: 1 - RGB image, 0 - Gray-level (8 bit) images.\n");
+
+		fprintf(stderr, "example: 0.5 500 20 dragon.ppm dragonOut.ppm 1 1 csr 1 \n");
+
+
 		return 1;
 
 		//example: 0.5 500 20 d:\testImgs\001_test.ppm d:\out001.ppm 1 1 csr 1 
